@@ -4,7 +4,7 @@
 class Fixed {
 	private:
 		int _fixedPointNumber;
-		static const int _factionalBits;// always be the integer literal 8.
+		static const int _factionalBits = 8;// always be the integer literal 8.
 
 	public:
 		Fixed();
