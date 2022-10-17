@@ -40,6 +40,12 @@ class Fixed {
 		Fixed &operator--();
 		const Fixed operator++(int);
 		const Fixed operator--(int);
+
+		/* returns a reference to the smallest/greatest one */
+		static Fixed &min(Fixed &num1, Fixed &num2);
+		static const Fixed &min(const Fixed &num1, const Fixed &num2);
+		static Fixed &max(Fixed &num1, Fixed &num2);
+		static const Fixed &max(const Fixed &num1, const Fixed &num2);
 };
 
 std::ostream &operator<<(std::ostream &os, Fixed const &value);

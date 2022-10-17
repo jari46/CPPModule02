@@ -130,3 +130,33 @@ const Fixed Fixed::operator--(int) {
 	_fixedPointNumber = _fixedPointNumber + 1;
 	return meCopied;
 }
+
+/* returns a reference to the smallest/greatest one */
+// in case of a == b, return a.
+Fixed &Fixed::min(Fixed &a, Fixed &b) {
+	if (a <= b)
+		return a;
+	else
+		return b;
+}
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
+	if (a <= b)
+		return a;
+	else
+		return b;
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b) {
+	if (a < b)
+		return b;
+	else
+		return a;
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
+	if (a < b)
+		return b;
+	else
+		return a;
+}
