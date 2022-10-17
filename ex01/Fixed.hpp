@@ -21,12 +21,13 @@ class Fixed {
 		Fixed(const int number);
 		Fixed(const float number);
 
-		/* 2. CONVERTs its FIXED-PONT value to the OTHER value,
+		/* 2. CONVERTs its FIXED-PONT value to the OTHER kinds of value,
 		** and RETURN it. */
 		float toFloat(void) const;
 		int toInt(void) const;
 };
 
+/* 3. overload of the insertion (<<) operator */
 std::ostream &operator<<(std::ostream &os, Fixed const &value);
 
 #endif /* FIXED_HPP */

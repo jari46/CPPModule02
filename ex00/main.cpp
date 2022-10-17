@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Fixed.hpp"
 
-/* 1. [Fixed.hpp]
+/* 1. see [Fixed.hpp] with my brief informing about fixed-point number!
 ** 2. see [main.cpp] with [Fixed.cpp] */
 
 int main( void ) {
