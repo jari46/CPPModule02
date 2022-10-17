@@ -3,17 +3,23 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed(void) {
+	std::cout << "Default constructor called" << std::endl;
 	_fixedPointNumber = 0;
 }
 
 Fixed::~Fixed(void) {
+	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& fixed) {
+	std::cout << "Copy constructor called" << std::endl;
+
 	*this = fixed;
 }
 
 Fixed& Fixed::operator=(const Fixed& fixed) {
+	std::cout << "Copy assignment operator called" << std::endl;
+
 	_fixedPointNumber = fixed.getRawBits();
 	return *this;
 }
@@ -27,10 +33,14 @@ void Fixed::setRawBits(int const raw) {
 }
 
 Fixed::Fixed(const int number) {
+	std::cout << "Int constructor called" << std::endl;
+
 	_fixedPointNumber = (number << _factionalBits);
 }
 
 Fixed::Fixed(const float number) {
+	std::cout << "Float constructor called" << std::endl;
+	
 	_fixedPointNumber = std::roundf(number * (1 << _factionalBits));
 }
 
@@ -78,19 +88,23 @@ bool Fixed::operator!=(const Fixed &b) const {
 
 /* arithmetic operators: +, -, *, / */
 Fixed Fixed::operator+(const Fixed &b) const {
-	return _fixedPointNumber + b.getRawBits();
+	Fixed newFixed(toFloat() + b.toFloat());
+	return newFixed;
 }
 
 Fixed Fixed::operator-(const Fixed &b) const {
-	return _fixedPointNumber - b.getRawBits();
+	Fixed newFixed(toFloat() - b.toFloat());
+	return newFixed;
 }
 
 Fixed Fixed::operator*(const Fixed &b) const {
-	return _fixedPointNumber * b.getRawBits();
+	Fixed newFixed(toFloat() * b.toFloat());
+	return newFixed;
 }
 
 Fixed Fixed::operator/(const Fixed &b) const {
-	return _fixedPointNumber / b.getRawBits();
+	Fixed newFixed(toFloat() / b.toFloat());
+	return newFixed;
 }
 
 /* pre-increment/decrement operators: ++a, --a */

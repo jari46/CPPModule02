@@ -4,6 +4,7 @@
 
 Fixed::Fixed(void) {
 	std::cout << "Default constructor called" << std::endl;
+	_fixedPointNumber = 0;
 }
 
 Fixed::~Fixed(void) {
