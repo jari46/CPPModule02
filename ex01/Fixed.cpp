@@ -16,11 +16,11 @@ Fixed::Fixed(const Fixed& fixed) {
 	*this = fixed;
 }
 
+/* operator overloading */
 Fixed& Fixed::operator=(const Fixed& fixed) {
 	std::cout << "Copy assignment operator called" << std::endl;
 
-	//
-
+	_fixedPointNumber = fixed.getRawBits();
 	return *this;
 }
 
@@ -41,13 +41,21 @@ Fixed::Fixed(const int number) {
 Fixed::Fixed(const float number) {
 	std::cout << "Float constructor called" << std::endl;
 
-	//?
+	//to make it easier, consider it as number (not bits)
+	_fixedPointNumber = std::roundf(number * (1 << _factionalBits));
 }
 
-//float Fixed::toFloat(void) const {
-//	//
-//}
+/* operator overloading */
+std::ostream &operator<<(std::ostream &os, Fixed const &value)
+{
+    os << value.toFloat();
+    return (os);
+}
 
-//int Fixed::toInt(void) const {
-//	//
-//}
+float Fixed::toFloat(void) const {
+	return (float)_fixedPointNumber / (float)(1 << _factionalBits);
+}
+
+int Fixed::toInt(void) const {
+	return _fixedPointNumber >> _factionalBits;
+}

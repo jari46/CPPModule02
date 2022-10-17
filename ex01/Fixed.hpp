@@ -23,8 +23,10 @@ class Fixed {
 
 		/* 2. CONVERTs its FIXED-PONT value to the OTHER value,
 		** and RETURN it. */
-		//float toFloat(void) const;
-		//int toInt(void) const;
+		float toFloat(void) const;
+		int toInt(void) const;
 };
+
+std::ostream &operator<<(std::ostream &os, Fixed const &value);
 
 #endif /* FIXED_HPP */
