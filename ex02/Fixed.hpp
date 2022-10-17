@@ -22,7 +22,7 @@ class Fixed {
 		int toInt(void) const;
 
 		/* comparison operators: >, <, >=, <=, ==, != */
-		bool operator>(const Fixed &b) const;
+	
 		bool operator<(const Fixed &b) const;
 		bool operator>=(const Fixed &b) const;
 		bool operator<=(const Fixed &b) const;
