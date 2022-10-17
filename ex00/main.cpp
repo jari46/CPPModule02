@@ -6,6 +6,7 @@
 int main( void ) {
 	Fixed a;// Default constructor called
 	Fixed b(a);// Copy constructor called -> ...
+	//Fixed const b = a; //another way of calling copy constructor
 	Fixed c;// Default constructor called
 
 	c = b;// Copy assignment operator called -> ...
@@ -16,3 +17,4 @@ int main( void ) {
 	std::cout << c.getRawBits() << std::endl;
 	
 	return 0;
+}
